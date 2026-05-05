@@ -11,6 +11,7 @@ This project is based on a **real server used daily**, already containing severa
 - [How the project works](#-how-the-project-works)
 - [Requirements](#-requirements)
 - [Configuration variables](#-configuration-variables)
+- [System configuration](#-system-configuration-prerequisite)
 - [Step-by-step installation](#-step-by-step-installation)
 - [Required ports](#-required-ports)
 - [Project structure](#-project-structure)
@@ -89,6 +90,33 @@ When configured, the Discord bot will display the **server status** as the bot's
 - ❌ `Server offline` — when the server is not responding
 
 > ⚠️ **Important:** If `DISCORD_BOT_TOKEN` or `DISCORD_BOT_IP` are empty, the bot **will not start** and Python 3 and its modules **will not be installed**.
+
+---
+
+## ⚙️ System configuration (prerequisite)
+
+On Linux, DayZ requires the `vm.max_map_count` kernel parameter to be set to a minimum value of `1048576`. Without this, the server will not start. It is recommended to configure this **once** before running the server for the first time, using one of the options below:
+
+---
+
+### Option 1 — Apply manually (temporary)
+
+The value is lost when the VPS/machine restarts.
+
+```bash
+sudo sysctl -w vm.max_map_count=1048576
+```
+
+---
+
+### Option 2 — Make it permanent (recommended)
+
+Creates a configuration file that is loaded automatically every time the system starts. Done **once**, no need to repeat. If `99-dayzserver.conf` doesn't work, try `/etc/sysctl.conf` instead.
+
+```bash
+echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
+sudo sysctl --system
+```
 
 ---
 
@@ -178,7 +206,7 @@ DayZ-Linux-server/
 │   └── start_server.sh      # Main startup and update-check script
 │
 ├── serverDZ.cfg.example     # Basic server configuration
-├── profiles/                # Server profiles
+├── profiles/                # Server mod settings
 ├── keys/                    # Mod keys
 ├── servermod/               # Server-side only mods folder
 ├── mpmissions/              # Server mission folder (init.c, types.xml, events.xml)
@@ -225,6 +253,90 @@ Now just start the server and survive in Chernarus. Good luck, survivor!
 
 ---
 
+## 🖥️ Keeping the server alive with Screen
+
+By default, closing the terminal or disconnecting from the VPS terminates all running processes — including the DayZ server. **Screen** solves this by creating terminal sessions that keep running in the background.
+
+### 📦 Installing Screen
+
+```bash
+# Ubuntu / Debian
+sudo apt-get install screen -y
+```
+
+---
+
+### ▶️ Starting the server with Screen
+
+```bash
+screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+| Parameter | Description |
+|---|---|
+| `-S dayzserver` | Sets the session name |
+| `-dm` | Starts the session in the background (detached) |
+| `bash -c '...'` | Command to run inside the session |
+
+---
+
+### 📋 Checking active sessions
+
+```bash
+screen -ls
+```
+
+Example output:
+```
+There is a screen on:
+    12345.dayzserver    (Detached)
+1 Socket in /run/screen/S-user.
+```
+
+---
+
+### 🔍 Attaching to a session (view live logs)
+
+```bash
+screen -r dayzserver
+```
+
+> ⚠️ To **exit without stopping** the session, press `Ctrl + A` then `D`. This keeps the server running in the background.
+
+---
+
+### 🛑 Stopping the server
+
+```bash
+screen -S dayzserver -X quit
+```
+
+---
+
+### 🔄 Restarting the server
+
+```bash
+# Stop the current session
+screen -S dayzserver -X quit
+
+# Wait 2 seconds and start again
+sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+---
+
+### 📌 Quick reference
+
+| Action | Command |
+|---|---|
+| Start server | `screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'` |
+| List active sessions | `screen -ls` |
+| Attach to session | `screen -r dayzserver` |
+| Exit without stopping | `Ctrl + A` → `D` |
+| Stop session | `screen -S dayzserver -X quit` |
+
+---
+
 # 🧟 DayZ Linux Server — Setup Automático (pt_BR)
 
 > Scripts de configuração automática para servidores do **DayZ em Linux**, com o objetivo de facilitar a criação e manutenção do seu próprio servidor.
@@ -238,6 +350,7 @@ A base deste projeto é um **servidor real utilizado no dia a dia**, já contend
 - [Como o projeto funciona](#-como-o-projeto-funciona)
 - [Requisitos](#-requisitos)
 - [Variáveis de configuração](#-variáveis-de-configuração)
+- [Configuração do sistema](#-configuração-do-sistema-pré-requisito)
 - [Instalação passo a passo](#-instalação-passo-a-passo)
 - [Portas necessárias](#-portas-necessárias)
 - [Estrutura do projeto](#-estrutura-do-projeto)
@@ -316,6 +429,33 @@ Quando configurado, o bot do Discord exibirá em tempo real o **status do servid
 - ❌ `Server offline` — quando o servidor não responde
 
 > ⚠️ **Importante:** Se `DISCORD_BOT_TOKEN` ou `DISCORD_BOT_IP` estiverem vazios, o bot **não será iniciado** e o Python 3 e seus módulos **não serão instalados**.
+
+---
+
+## ⚙️ Configuração do sistema (pré-requisito)
+ 
+No linux, o DayZ exige que o parâmetro `vm.max_map_count` esteja com um valor mínimo de `1048576`. Sem isso, o servidor não inicializa. É recomendado configurar isso **uma única vez** antes de iniciar o servidor pela primeira vez, escolhendo uma das opções abaixo:
+ 
+---
+ 
+### Opção 1 — Aplicar manualmente (temporário)
+ 
+O valor é perdido ao reiniciar a VPS/máquina.
+ 
+```bash
+sudo sysctl -w vm.max_map_count=1048576
+```
+ 
+---
+ 
+### Opção 2 — Tornar permanente (recomendado)
+ 
+Crie um arquivo de configuração que é carregado automaticamente toda vez que o sistema inicia. Feito **uma única vez**, não precisa repetir. Caso `99-dayzserver.conf` não funcione, tente em: `/etc/sysctl.conf`.
+ 
+```bash
+echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
+sudo sysctl --system
+```
 
 ---
 
@@ -405,7 +545,7 @@ DayZ-Linux-server/
 │   └── start_server.sh      # Script principal de inicialização e verificação de atualizações
 │
 ├── serverDZ.cfg.example     # Configurações básicas do servidor
-├── profiles/                # Perfis do servidor
+├── profiles/                # Configurações dos mods do servidor
 ├── keys/                    # Chaves dos mods
 ├── servermod/               # Pasta dos mods que são carregados apenas do lado servidor.
 ├── mpmissions/              # Pasta da missão do servidor (init.c, types.xml, events.xml)
@@ -461,9 +601,6 @@ Por padrão, ao fechar o terminal ou desconectar da VPS, todos os processos em e
 ```bash
 # Ubuntu / Debian
 sudo apt-get install screen -y
-
-# CentOS / Fedora
-sudo dnf install screen -y
 ```
 
 ---
@@ -509,16 +646,6 @@ screen -r dayzserver
 
 ### 🛑 Encerrando o servidor
 
-**Opção 1 — De dentro da sessão:**
-```bash
-# Acesse a sessão
-screen -r dayzserver
-
-# Encerre o processo com Ctrl + C e depois feche a sessão
-exit
-```
-
-**Opção 2 — De fora da sessão (sem precisar acessar):**
 ```bash
 screen -S dayzserver -X quit
 ```

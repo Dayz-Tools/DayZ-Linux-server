@@ -1,0 +1,5 @@
+config.env
+serverDZ.cfg
+*.log
+types.xml
+events.xml
