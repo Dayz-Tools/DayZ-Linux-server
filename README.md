@@ -15,6 +15,7 @@ This project is based on a **real server used daily**, already containing severa
 - [Step-by-step installation](#-step-by-step-installation)
 - [Required ports](#-required-ports)
 - [Project structure](#-project-structure)
+- [Profiles configuration](#-mod-profiles-configuration)
 - [Notes](#-notes)
 - [Contributing](#-contributing)
 
@@ -215,6 +216,57 @@ DayZ-Linux-server/
 
 ---
 
+## 🔧 Mod profiles configuration
+
+After cloning the project, update the mod settings below via the command line (from the project root, e.g. `$HOME/steamcmd/dayzserver`).
+
+> ⚠️ These files contain **passwords and API keys** — do not share or commit real values to Git. **Restart the server** after any change.
+
+### GameLabs — `profiles/gamelabs.cfg`
+
+```bash
+sed -i 's|"connectionVerification": 0|"connectionVerification": 1|' profiles/gamelabs.cfg
+sed -i 's|"serverId": ".*"|"serverId": "YOUR_SERVER_ID_HERE"|' profiles/gamelabs.cfg
+sed -i 's|"apiKey": ".*"|"apiKey": "YOUR_API_KEY_HERE"|' profiles/gamelabs.cfg
+```
+
+| Field | Description |
+|---|---|
+| `connectionVerification` | `0` = off, `1` = GameLabs API verification enabled |
+| `serverId` | Server ID from the GameLabs panel |
+| `apiKey` | API key from the GameLabs panel |
+
+Use `connectionVerification": 0` in the first command if you want verification disabled.
+
+### BattlEye RCon — `profiles/BattlEye/BEServer_x64.cfg`
+
+```bash
+sed -i 's|^RConPassword.*|RConPassword "YOUR_RCON_PASSWORD_HERE"|' profiles/BattlEye/BEServer_x64.cfg
+```
+
+### VPP Admin Tools — `profiles/VPPAdminTools/Permissions/credentials.txt`
+
+The file must contain **only one line** with the superadmin password (no blank lines).
+
+```bash
+echo -n 'YOUR_VPP_PASSWORD_HERE' > profiles/VPPAdminTools/Permissions/credentials.txt
+```
+
+### Apply changes (restart)
+
+```bash
+screen -S dayzserver -X quit
+sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+| File | What to update |
+|---|---|
+| `profiles/gamelabs.cfg` | `connectionVerification`, `serverId`, `apiKey` |
+| `profiles/BattlEye/BEServer_x64.cfg` | `RConPassword` |
+| `profiles/VPPAdminTools/Permissions/credentials.txt` | Single-line VPP password |
+
+---
+
 ## ⚠️ Notes
 
 - Tested on **Ubuntu 24.04**
@@ -354,6 +406,7 @@ A base deste projeto é um **servidor real utilizado no dia a dia**, já contend
 - [Instalação passo a passo](#-instalação-passo-a-passo)
 - [Portas necessárias](#-portas-necessárias)
 - [Estrutura do projeto](#-estrutura-do-projeto)
+- [Configuração profiles](#-configuração-profiles)
 - [Observações](#-observações)
 - [Contribuições](#-contribuições)
 
@@ -471,7 +524,7 @@ cd $HOME/steamcmd/dayzserver
 **2. Clone o projeto:**
 
 ```bash
-git clone https://github.com/JoseBarreto1/DayZ-Linux-server.git .
+git clone https://github.com/Dayz-Tools/DayZ-Linux-server.git .
 ```
 
 **3. Inicie o servidor:**
@@ -551,6 +604,57 @@ DayZ-Linux-server/
 ├── mpmissions/              # Pasta da missão do servidor (init.c, types.xml, events.xml)
 └── README.md
 ```
+
+---
+
+## 🔧 Configuração profiles
+
+Após clonar o projeto, atualize as configurações dos mods abaixo pela linha de comando (na raiz do projeto, ex.: `$HOME/steamcmd/dayzserver`).
+
+> ⚠️ Esses arquivos contêm **senhas e chaves de API** — não compartilhe nem faça commit de valores reais no Git. **Reinicie o servidor** após qualquer alteração.
+
+### GameLabs — `profiles/gamelabs.cfg`
+
+```bash
+sed -i 's|"connectionVerification": 0|"connectionVerification": 1|' profiles/gamelabs.cfg
+sed -i 's|"serverId": ".*"|"serverId": "SEU_SERVER_ID_AQUI"|' profiles/gamelabs.cfg
+sed -i 's|"apiKey": ".*"|"apiKey": "SUA_API_KEY_AQUI"|' profiles/gamelabs.cfg
+```
+
+| Campo | Descrição |
+|---|---|
+| `connectionVerification` | `0` = desligado, `1` = verificação via API GameLabs ativa |
+| `serverId` | ID do servidor no painel GameLabs |
+| `apiKey` | Chave de API do painel GameLabs |
+
+Use `connectionVerification": 0` no primeiro comando se quiser manter a verificação desligada.
+
+### BattlEye RCon — `profiles/BattlEye/BEServer_x64.cfg`
+
+```bash
+sed -i 's|^RConPassword.*|RConPassword "SUA_SENHA_RCON_AQUI"|' profiles/BattlEye/BEServer_x64.cfg
+```
+
+### VPP Admin Tools — `profiles/VPPAdminTools/Permissions/credentials.txt`
+
+O arquivo deve conter **apenas uma linha** com a senha de superadmin (sem linhas em branco).
+
+```bash
+echo -n 'SUA_SENHA_VPP_AQUI' > profiles/VPPAdminTools/Permissions/credentials.txt
+```
+
+### Aplicar as mudanças (reiniciar)
+
+```bash
+screen -S dayzserver -X quit
+sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+| Arquivo | O que atualizar |
+|---|---|
+| `profiles/gamelabs.cfg` | `connectionVerification`, `serverId`, `apiKey` |
+| `profiles/BattlEye/BEServer_x64.cfg` | `RConPassword` |
+| `profiles/VPPAdminTools/Permissions/credentials.txt` | Senha VPP em uma única linha |
 
 ---
 
