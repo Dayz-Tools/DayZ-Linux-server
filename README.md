@@ -132,7 +132,7 @@ cd $HOME/steamcmd/dayzserver
 **2. Clone the project:**
 
 ```bash
-git clone https://github.com/JoseBarreto1/DayZ-Linux-server.git .
+git clone https://github.com/Dayz-Tools/DayZ-Linux-server.git .
 ```
 
 **3. Start the server:**
