@@ -18,11 +18,17 @@
                     { "itemName": "NBCHoodYellow", "qty": 100.0, "spawnChance": 50,"children": [] },
                     { "itemName": "Pen_Black", "qty": 100.0, "spawnChance": 50,"children": [] },
                     { "itemName": "ElectronicRepairKit", "qty": 100.0, "spawnChance": 30,"children": [] },
-                    { "itemName": "AKM", "qty": 100.0, "spawnChance": 40,"children": [] },
                     { "itemName": "M4A1_Black", "qty": 100.0, "spawnChance": 40,"children": [] },
-                    { "itemName": "Mag_FAL_20Rnd", "qty": 100.0, "spawnChance": 40,"children": [] },
-                    { "itemName": "FAL", "qty": 100.0, "spawnChance": 30,"children": [] },
-                    { "itemName": "Mag_AKM_Drum75Rnd", "qty": 100.0, "spawnChance": 30,"children": [] },
+                    { "itemName": "AKM", "qty": 1, "spawnChance": 30,"children": [
+                        { "itemName": "Mag_AKM_Drum75Rnd", "qty": -1, "spawnChance": 100, "children": [] },
+                        { "itemName": "AK_WoodHndgrd", "qty": 1, "spawnChance": 100, "children": [] },
+                        { "itemName": "AK_WoodBttstck", "qty": 1, "spawnChance": 100, "children": [] }
+                    ]},                   
+                    { "itemName": "FAL", "qty": 1, "spawnChance": 30,"children": [
+                        { "itemName": "Mag_FAL_20Rnd", "qty": -1, "spawnChance": 100, "children": [] },
+                        { "itemName": "Fal_OeBttstck", "qty": 1, "spawnChance": 100, "children": [] },
+                        { "itemName": "MK4Optic_Black", "qty": 1, "spawnChance": 100, "children": [] }
+                    ]},
                     { "itemName": "CBD_UnlockingSledge", "qty": 100.0, "spawnChance": 20,"children": [] },
                     { "itemName": "CBD_LootRoomKey_Blue", "qty": 100.0, "spawnChance": 35,"children": [] },
                     { "itemName": "BXD_Wardrobe_Kit", "qty": 100.0, "spawnChance": 65, "children": [] },

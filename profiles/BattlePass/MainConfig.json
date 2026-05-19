@@ -1,0 +1,834 @@
+{
+    "enableBattlePass": 1,
+    "enableStore": 1,
+    "admin": [
+        "76561198360290787"
+    ],
+    "passiveCreditIntevalSec": 1800,
+    "passiveCreditAmount": 15,
+    "weapons": [
+        {
+            "name": "Kit de limpeza de arma",
+            "className": "WeaponCleaningKit",
+            "value": 40
+        },
+        {
+            "name": "AK 47",
+            "className": "AKS74U",
+            "value": 100
+        },
+        {
+            "name": "Bizon",
+            "className": "PP19",
+            "value": 100
+        },
+        {
+            "name": "MP5K",
+            "className": "MP5K",
+            "value": 90
+        },
+        {
+            "name": "FAMAS",
+            "className": "FAMAS",
+            "value": 150
+        },
+        {
+            "name": "AK 101",
+            "className": "AK101",
+            "value": 200
+        },
+        {
+            "name": "AKM",
+            "className": "AKM",
+            "value": 250
+        },
+        {
+            "name": "M4A1",
+            "className": "M4A1",
+            "value": 250
+        },
+        {
+            "name": "FAL",
+            "className": "FAL",
+            "value": 250
+        },
+        {
+            "name": "VSS",
+            "className": "VSS",
+            "value": 200
+        },
+        {
+            "name": "M14",
+            "className": "M14",
+            "value": 250
+        },
+        {
+            "name": "SVD",
+            "className": "SVD",
+            "value": 250
+        },
+        {
+            "name": "Carregador AKM",
+            "className": "Mag_AKM_30Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador FAL",
+            "className": "Mag_FAL_20Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador AK",
+            "className": "Mag_AK74_30Rnd",
+            "value": 30
+        },
+        {
+            "name": "Carregador AK101",
+            "className": "Mag_AK101_30Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador M4",
+            "className": "Mag_CMAG_30Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador FAMAS",
+            "className": "Mag_FAMAS_25Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador M14",
+            "className": "Mag_M14_10Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador SVD",
+            "className": "Mag_SVD_10Rnd",
+            "value": 50
+        },
+        {
+            "name": "Carregador VSS",
+            "className": "Mag_VSS_10Rnd",
+            "value": 50
+        },
+        {
+            "name": "Guarda mao AK",
+            "className": "AK_WoodHndgrd",
+            "value": 30
+        },
+        {
+            "name": "Coronha AK",
+            "className": "AK_WoodBttstck",
+            "value": 30
+        },
+        {
+            "name": "Guarda mao M4",
+            "className": "M4_MPHndgrd",
+            "value": 30
+        },
+        {
+            "name": "Coronha M4",
+            "className": "M4_MPBttstck",
+            "value": 30
+        },
+        {
+            "name": "Coronha FAL",
+            "className": "Fal_OeBttstck",
+            "value": 30
+        }
+    ],
+    "vehicles": [
+        {
+            "name": "Vela de ignicao",
+            "className": "SparkPlug",
+            "value": 20
+        },
+        {
+            "name": "Kit de reparo de pneus",
+            "className": "TireRepairKit",
+            "value": 20
+        },
+        {
+            "name": "Bateria de carro",
+            "className": "CarBattery",
+            "value": 30
+        },
+        {
+            "name": "Radiador",
+            "className": "CarRadiator",
+            "value": 30
+        },
+        {
+            "name": "Bateria de caminhao",
+            "className": "TruckBattery",
+            "value": 40
+        },
+        {
+            "name": "Kart Blue",
+            "className": "MBM_GoKart_Blue",
+            "value": 200
+        },
+        {
+            "name": "Kart Red",
+            "className": "MBM_GoKart_Red",
+            "value": 200
+        },
+        {
+            "name": "Olga Roxo",
+            "className": "CivilianSedan_Wine",
+            "value": 300
+        },
+        {
+            "name": "ADA 4x4",
+            "className": "OffroadHatchback",
+            "value": 300
+        },
+        {
+            "name": "Sarka",
+            "className": "Sedan_02",
+            "value": 300
+        },
+        {
+            "name": "Fusca Azul",
+            "className": "NamantH_VWBeetle1963_BahamaBlue",
+            "value": 350
+        },
+        {
+            "name": "Fusca Marfim",
+            "className": "NamantH_VWBeetle1963_Ivory",
+            "value": 350
+        },
+        {
+            "name": "Fusca Preto",
+            "className": "NamantH_VWBeetle1963_Black",
+            "value": 350
+        },
+        {
+            "name": "Fusca Bege",
+            "className": "NamantH_VWBeetle1963_PanamaBeige",
+            "value": 350
+        },
+        {
+            "name": "DodgeRam 3500 Black",
+            "className": "DodgeRam_3500Rollbar_Black",
+            "value": 400
+        },
+        {
+            "name": "Nissan GTR Blue",
+            "className": "NissanGTR_Blue",
+            "value": 400
+        },
+        {
+            "name": "Tahoe Black",
+            "className": "Tahoe_Black",
+            "value": 400
+        },
+        {
+            "name": "Mustang Shelby GT500",
+            "className": "Ford_Mustang_Shelby_GT500_Black",
+            "value": 400
+        },
+        {
+            "name": "Apocalyptic Yellow",
+            "className": "MBM_ApocalypticPAZ_Yellow",
+            "value": 400
+        },
+        {
+            "name": "Chevy Impala Baby",
+            "className": "MBM_ChevyImpala_Baby",
+            "value": 400
+        },
+        {
+            "name": "Chevy Impala Black",
+            "className": "MBM_ChevyImpala_Black",
+            "value": 400
+        },
+        {
+            "name": "Kamaz Typhoon",
+            "className": "Kamaz_TyphoonK_CamoGreen3",
+            "value": 450
+        },
+        {
+            "name": "Centauro",
+            "className": "BXD_Centauro",
+            "value": 600
+        },
+        {
+            "name": "Centauro 2",
+            "className": "BXD_Centauro_camo",
+            "value": 600
+        },
+        {
+            "name": "Guarani",
+            "className": "BXD_Guarani",
+            "value": 700
+        },
+        {
+            "name": "Guarani BOPE",
+            "className": "BXD_Guarani_black",
+            "value": 800
+        },
+        {
+            "name": "Guarani Baixada",
+            "className": "BXD_Guarani_baixada",
+            "value": 700
+        },
+        {
+            "name": "Little Bird Camo",
+            "className": "RFFSHeli_LittleBird_Camo",
+            "value": 900
+        },
+        {
+            "name": "Little Bird Desert",
+            "className": "RFFSHeli_LittleBird_Desert",
+            "value": 900
+        },
+        {
+            "name": "MBB Bo105M Black",
+            "className": "RFFSHeli_Bo105m_blackcamo",
+            "value": 900
+        },
+        {
+            "name": "Bell 429",
+            "className": "RFFSHeli_Bell429",
+            "value": 900
+        },
+        {
+            "name": "Mil Mi-2",
+            "className": "RFFSHeli_Mi2",
+            "value": 900
+        },
+        {
+            "name": "Mil Mi-2 Military",
+            "className": "RFFSHeli_Mi2_Military",
+            "value": 900
+        },
+        {
+            "name": "Apache",
+            "className": "RFFSHeli_Apache",
+            "value": 900
+        }
+    ],
+    "foods": [
+        {
+            "name": "Lata de bacon",
+            "className": "TacticalBaconCan",
+            "value": 20
+        },
+        {
+            "name": "Atum enlatado",
+            "className": "TunaCan",
+            "value": 20
+        },
+        {
+            "name": "Espaguete",
+            "className": "SpaghettiCan",
+            "value": 20
+        },
+        {
+            "name": "Pepsi",
+            "className": "SodaCan_Pipsi",
+            "value": 20
+        },
+        {
+            "name": "Sprite",
+            "className": "SodaCan_Spite",
+            "value": 20
+        },
+        {
+            "name": "Barra chocolate",
+            "className": "ZagorkyChocolate",
+            "value": 15
+        },
+        {
+            "name": "Maca",
+            "className": "Apple",
+            "value": 10
+        },
+        {
+            "name": "Ameixa",
+            "className": "Plum",
+            "value": 10
+        },
+        {
+            "name": "Tomate",
+            "className": "Tomato",
+            "value": 5
+        }
+    ],
+    "clothes": [
+        {
+            "name": "Colete balistico",
+            "className": "PressVest_Blue",
+            "value": 100
+        },
+        {
+            "name": "Botas de combate",
+            "className": "CombatBoots_Black",
+            "value": 50
+        },
+        {
+            "name": "Botas de selva",
+            "className": "JungleBoots_Black",
+            "value": 50
+        },
+        {
+            "name": "Botas de selva verde",
+            "className": "JungleBoots_Green",
+            "value": 50
+        },
+        {
+            "name": "Botas militar",
+            "className": "MilitaryBoots_Black",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta de combate preta",
+            "className": "M65Jacket_Black",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta camuflada",
+            "className": "TTsKOJacket_Camo",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta de piloto preta",
+            "className": "PilotJacket_Black",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta UUC",
+            "className": "USMCJacket_Woodland",
+            "value": 50
+        },
+        {
+            "name": "Calça UUC",
+            "className": "USMCPants_Woodland",
+            "value": 50
+        },
+        {
+            "name": "Capacete UUC",
+            "className": "BallisticHelmet_Woodland",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta de motociclista",
+            "className": "RidersJacket_Black",
+            "value": 50
+        },
+        {
+            "name": "Jaqueta de combate",
+            "className": "BDUJacket",
+            "value": 50
+        },
+        {
+            "name": "Calça de combate",
+            "className": "BDUPants",
+            "value": 50
+        },
+        {
+            "name": "Capacete de combate",
+            "className": "BallisticHelmet_BDU",
+            "value": 50
+        },
+        {
+            "name": "Balaclava de combate",
+            "className": "BalaclavaMask_BDU",
+            "value": 50
+        },
+        {
+            "name": "Capacete tatico",
+            "className": "Mich2001Helmet",
+            "value": 50
+        },
+        {
+            "name": "Capacete balistico",
+            "className": "BallisticHelmet_Black",
+            "value": 50
+        },
+        {
+            "name": "Calça camuflada",
+            "className": "TTSKOPants",
+            "value": 50
+        },
+        {
+            "name": "Chapeu OKZK",
+            "className": "OKZKCap_Green",
+            "value": 30
+        },
+        {
+            "name": "Balaclava verde",
+            "className": "BalaclavaMask_Green",
+            "value": 30
+        },
+        {
+            "name": "Lenço tatico",
+            "className": "Shemag_Green",
+            "value": 30
+        },
+        {
+            "name": "Cinto tatico",
+            "className": "MilitaryBelt",
+            "value": 30
+        },
+        {
+            "name": "Luva marrom",
+            "className": "OMNOGloves_Brown",
+            "value": 30
+        },
+        {
+            "name": "Luva acolchoada",
+            "className": "PaddedGloves_Brown",
+            "value": 30
+        },
+        {
+            "name": "Luva tatica preta",
+            "className": "TacticalGloves_Black",
+            "value": 30
+        },
+        {
+            "name": "Luva tatica verde",
+            "className": "TacticalGloves_Green",
+            "value": 30
+        },
+        {
+            "name": "Luva de trabalho",
+            "className": "WorkingGloves_Beige",
+            "value": 30
+        }
+    ],
+    "tools": [
+        {
+            "name": "Bateria 9V",
+            "className": "Battery9V",
+            "value": 20
+        },
+        {
+            "name": "Pa",
+            "className": "Shovel",
+            "value": 30
+        },
+        {
+            "name": "Pedra de amolar",
+            "className": "Whetstone",
+            "value": 30
+        },
+        {
+            "name": "Chave de fenda",
+            "className": "Screwdriver",
+            "value": 40
+        },
+        {
+            "name": "Caixa de Pregos",
+            "className": "NailBox",
+            "value": 40
+        },
+        {
+            "name": "Martelo",
+            "className": "Hammer",
+            "value": 40
+        },
+        {
+            "name": "Machado",
+            "className": "WoodAxe",
+            "value": 40
+        },
+        {
+            "name": "Alicate",
+            "className": "Pliers",
+            "value": 40
+        },
+        {
+            "name": "Telemetro",
+            "className": "Rangefinder",
+            "value": 40
+        },
+        {
+            "name": "Marreta",
+            "className": "SledgeHammer",
+            "value": 80
+        },
+        {
+            "name": "Picareta",
+            "className": "Pickaxe",
+            "value": 80
+        },
+        {
+            "name": "Gerador de energia",
+            "className": "PowerGenerator",
+            "value": 160
+        }
+    ],
+    "day1": [
+        {
+            "name": "Feijão cozido",
+            "className": "BakedBeansCan"
+        },
+        {
+            "name": "Maçã",
+            "className": "Apple"
+        },
+        {
+            "name": "Ameixa",
+            "className": "Plum"
+        },
+        {
+            "name": "Pepsi",
+            "className": "SodaCan_Pipsi"
+        },
+        {
+            "name": "Calça Jeans",
+            "className": "Jeans_Black"
+        },
+        {
+            "name": "Maçã",
+            "className": "Apple"
+        },
+        {
+            "name": "Tomate",
+            "className": "Tomato"
+        },
+        {
+            "name": "Luvas de lã",
+            "className": "WoolGloves_Green"
+        }
+    ],
+    "day2": [
+        {
+            "name": "Lata de bacon",
+            "className": "TacticalBaconCan"
+        },
+        {
+            "name": "Bandagem",
+            "className": "BandageDressing"
+        },
+        {
+            "name": "Toca marrom",
+            "className": "RadarCap_Brown"
+        },
+        {
+            "name": "Toca verde",
+            "className": "RadarCap_Green"
+        },
+        {
+            "name": "Lenço tático",
+            "className": "Shemag_Green"
+        },
+        {
+            "name": "Sprite",
+            "className": "SodaCan_Spite"
+        },
+        {
+            "name": "Barra chocolate",
+            "className": "ZagorkyChocolate"
+        }
+    ],
+    "day3": [
+        {
+            "name": "Epinefrina",
+            "className": "Epinephrine"
+        },
+        {
+            "name": "Spray desinfetante",
+            "className": "DisinfectantSpray"
+        },
+        {
+            "name": "Calça Jeans",
+            "className": "Jeans_Blue"
+        },
+        {
+            "name": "Lenço tático",
+            "className": "Shemag_Brown"
+        },
+        {
+            "name": "Camisa tática",
+            "className": "TacticalShirt_Tan"
+        },
+        {
+            "name": "Casaco de lã",
+            "className": "WoolCoat_BrownCheck"
+        }
+    ],
+    "day4": [
+        {
+            "name": "Bateria 9V",
+            "className": "Battery9V"
+        },
+        {
+            "name": "Pá",
+            "className": "Shovel"
+        },
+        {
+            "name": "Pedra de amolar",
+            "className": "Whetstone"
+        },
+        {
+            "name": "Chave de fenda",
+            "className": "Screwdriver"
+        },
+        {
+            "name": "Machado",
+            "className": "WoodAxe"
+        },
+        {
+            "name": "Luvas de lã",
+            "className": "WoolGloves_Tan"
+        },
+        {
+            "name": "Camisa tática",
+            "className": "TacticalShirt_Black"
+        },
+        {
+            "name": "Camisa tática",
+            "className": "TacticalShirt_Grey"
+        }
+    ],
+    "day5": [
+        {
+            "name": "Calça Jeans",
+            "className": "Jeans_Green"
+        },
+        {
+            "name": "Toca Preta",
+            "className": "RadarCap_Black"
+        },
+        {
+            "name": "Casaco de lã",
+            "className": "WoolCoat_Green"
+        },
+        {
+            "name": "Casaco de lã",
+            "className": "WoolCoat_GreyCheck"
+        },
+        {
+            "name": "Camisa tática",
+            "className": "TacticalShirt_Olive"
+        },
+        {
+            "name": "Capacete balistico",
+            "className": "BallisticHelmet_Black"
+        },
+        {
+            "name": "Calça camuflada",
+            "className": "TTSKOPants"
+        },
+        {
+            "name": "Alicate",
+            "className": "Pliers"
+        },
+        {
+            "name": "Telêmetro",
+            "className": "Rangefinder"
+        },
+        {
+            "name": "Marreta",
+            "className": "SledgeHammer"
+        }
+    ],
+    "day6": [
+        {
+            "name": "Botas de combate",
+            "className": "CombatBoots_Black"
+        },
+        {
+            "name": "Luva de trabalho",
+            "className": "WorkingGloves_Beige"
+        },
+        {
+            "name": "Luvas de lã",
+            "className": "WoolGloves_Black"
+        },
+        {
+            "name": "Casaco de lã",
+            "className": "WoolCoat_BlackCheck"
+        },
+        {
+            "name": "Caixa de Pregos",
+            "className": "NailBox"
+        },
+        {
+            "name": "Martelo",
+            "className": "Hammer"
+        },
+        {
+            "name": "Jaqueta UUC",
+            "className": "USMCJacket_Woodland"
+        },
+        {
+            "name": "Calça UUC",
+            "className": "USMCPants_Woodland"
+        },
+        {
+            "name": "Capacete UUC",
+            "className": "BallisticHelmet_Woodland"
+        }
+    ],
+    "day7": [
+        {
+            "name": "AK 47",
+            "className": "AKS74U"
+        },
+        {
+            "name": "Bizon",
+            "className": "PP19"
+        },
+        {
+            "name": "Kit de limpeza de arma",
+            "className": "WeaponCleaningKit"
+        },
+        {
+            "name": "MP5K",
+            "className": "MP5K"
+        },
+        {
+            "name": "FAMAS",
+            "className": "FAMAS"
+        },
+        {
+            "name": "Carregador FAL",
+            "className": "Mag_FAL_20Rnd"
+        },
+        {
+            "name": "Carregador AK",
+            "className": "Mag_AK74_30Rnd"
+        },
+        {
+            "name": "Longhorn",
+            "className": "Longhorn"
+        },
+        {
+            "name": "Glock19",
+            "className": "Glock19"
+        },
+        {
+            "name": "Carregador FAMAS",
+            "className": "Mag_FAMAS_25Rnd"
+        },
+        {
+            "name": "MKII",
+            "className": "MKII"
+        },
+        {
+            "name": "Rifle de repetição",
+            "className": "Repeater"
+        },
+        {
+            "name": "SSG 82",
+            "className": "SSG82"
+        },
+        {
+            "name": "UMP45",
+            "className": "UMP45"
+        },
+        {
+            "name": "P1",
+            "className": "P1"
+        },
+        {
+            "name": "RAK-37",
+            "className": "PM73Rak"
+        }
+    ]
+}

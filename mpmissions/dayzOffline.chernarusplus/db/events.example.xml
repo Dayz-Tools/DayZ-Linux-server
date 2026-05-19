@@ -219,9 +219,9 @@
             <child lootmax="0" lootmin="0" max="4" min="1" type="Animal_CanisLupus_Grey"/>
             <child lootmax="0" lootmin="0" max="2" min="1" type="pelt_wolf_black"/>
             <child lootmax="0" lootmin="0" max="2" min="1" type="Animal_CanisPestis"/>
-            <child lootmax="0" lootmin="0" max="2" min="1" type="Animal_ZombyDogA"/>
+            <child lootmax="0" lootmin="0" max="2" min="1" type="Animal_ZombyDog1"/>
             <child lootmax="0" lootmin="0" max="2" min="1" type="One_BlackPanter"/>
-            <child lootmax="0" lootmin="0" max="2" min="1" type="Animal_ZombyDogB"/>
+            <child lootmax="0" lootmin="0" max="2" min="1" type="Animal_ZombyDog"/>
             <child lootmax="0" lootmin="0" max="4" min="1" type="Animal_CanisLupus_White"/>
         </children>
     </event>
@@ -412,7 +412,6 @@
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_ConstrWorkerNormal_Grey"/>
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_HandymanNormal_Beige"/>
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_HandymanNormal_Blue"/>
-            <child lootmax="5" lootmin="0" max="0" min="1" type="BXD_zmb_Orc"/>
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_HandymanNormal_Green"/>
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_HandymanNormal_Grey"/>
             <child lootmax="5" lootmin="0" max="0" min="4" type="ZmbM_HandymanNormal_White"/>
@@ -554,7 +553,6 @@
             <child lootmax="5" lootmin="0" max="0" min="2" type="BXD_zmb_Crooked"/>
             <child lootmax="5" lootmin="0" max="0" min="2" type="BXD_zmb_skeleton"/>
             <child lootmax="5" lootmin="0" max="0" min="1" type="BXD_zmb_Samara"/>
-            <child lootmax="5" lootmin="0" max="0" min="2" type="BXD_zmb_Orc_Base"/>
             <child lootmax="5" lootmin="0" max="0" min="2" type="BXD_zmb_Naked"/>
         </children>
     </event>

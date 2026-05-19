@@ -493,7 +493,7 @@
         <cost></cost>
         <flags count_in_cargo="1" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="1" deloot="0"/>
     </type>
-    <type name="Animal_ZombyDogA">
+    <type name="Animal_ZombyDog">
         <lifetime>388000</lifetime>
         <nominal></nominal>
         <restock></restock>
@@ -503,17 +503,7 @@
         <cost></cost>
         <flags count_in_cargo="1" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="1" deloot="0"/>
     </type>
-    <type name="Animal_ZombyDogB">
-        <lifetime>388000</lifetime>
-        <nominal></nominal>
-        <restock></restock>
-        <min></min>
-        <quantmin>-1</quantmin>
-        <quantmax>-1</quantmax>
-        <cost></cost>
-        <flags count_in_cargo="1" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="1" deloot="0"/>
-    </type>
-    <type name="Animal_ZombyDogC">
+    <type name="Animal_ZombyDog1">
         <lifetime>388000</lifetime>
         <nominal></nominal>
         <restock></restock>
