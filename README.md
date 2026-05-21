@@ -777,3 +777,58 @@ sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
 | Acessar sessão | `screen -r dayzserver` |
 | Sair sem encerrar | `Ctrl + A` → `D` |
 | Encerrar sessão | `screen -S dayzserver -X quit` |
+
+---
+
+### Webhooks dos Mods — Notificações via Discord
+
+Abaixo estão os arquivos de configuração dos mods que suportam notificações via Discord Webhook. Todos são **opcionais**, mas recomendados para acompanhar eventos do servidor em tempo real.
+
+> ⚠️ **Reinicie o servidor** após qualquer alteração.
+
+| Arquivo | Campo |
+|---|---|
+| `profiles/BXDKoth/KothConfig.json` | `KOTH_Web_hook` |
+| `profiles/BXD_InterceptFlag/config.json` | `eventWebhook` |
+| `profiles/BXDHeli/HeliConfig.json` | `HELI_Web_hook` |
+| `profiles/AC/Settings/KillFeed.json` | `m_Webhook` |
+| `profiles/BXD_Sequestrador/BXD_Sequestrador_Settings.json` | `discordAddress` |
+
+#### KOTH — `profiles/BXDKoth/KothConfig.json`
+
+```bash
+sed -i 's|"KOTH_Web_hook": ".*"|"KOTH_Web_hook": "SEU_WEBHOOK_AQUI"|' profiles/BXDKoth/KothConfig.json
+```
+
+#### Intercept Flag — `profiles/BXD_InterceptFlag/config.json`
+
+```bash
+sed -i 's|"eventWebhook": ".*"|"eventWebhook": "SEU_WEBHOOK_AQUI"|' profiles/BXD_InterceptFlag/config.json
+```
+
+#### Heli — `profiles/BXDHeli/HeliConfig.json`
+
+```bash
+sed -i 's|"HELI_Web_hook": ".*"|"HELI_Web_hook": "SEU_WEBHOOK_AQUI"|' profiles/BXDHeli/HeliConfig.json
+```
+
+#### AC Kill Feed — `profiles/AC/Settings/KillFeed.json`
+
+```bash
+sed -i 's|"m_Webhook": ".*"|"m_Webhook": "SEU_WEBHOOK_AQUI"|' profiles/AC/Settings/KillFeed.json
+```
+
+#### Sequestrador — `profiles/BXD_Sequestrador/BXD_Sequestrador_Settings.json`
+
+```bash
+sed -i 's|"discordAddress": ".*"|"discordAddress": "SEU_WEBHOOK_AQUI"|' profiles/BXD_Sequestrador/BXD_Sequestrador_Settings.json
+```
+
+#### Aplicar as mudanças (reiniciar)
+
+```bash
+screen -S dayzserver -X quit
+sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+---
