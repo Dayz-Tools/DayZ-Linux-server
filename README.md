@@ -583,6 +583,24 @@ Para que o servidor apareça no Launcher do DayZ, libere as seguintes portas:
 
 > ⚠️ As portas devem estar liberadas no **firewall do sistema**, no **servidor/VPS** e no **roteador** (caso esteja hospedando em casa).
 
+1. Primeiro verifique se o ufw está instalado/ativo:
+
+```bash
+sudo ufw status
+```
+
+2. Liberar intervalo 2302-2305 UDP:
+
+```bash
+sudo ufw allow 2302:2305/udp
+```
+
+3. Liberar porta 27016 UDP:
+
+```bash
+sudo ufw allow 27016/udp
+```
+
 ---
 
 ## 📂 Estrutura do projeto
