@@ -94,40 +94,13 @@ When configured, the Discord bot will display the **server status** as the bot's
 
 ---
 
-## ⚙️ System configuration (prerequisite)
-
-On Linux, DayZ requires the `vm.max_map_count` kernel parameter to be set to a minimum value of `1048576`. Without this, the server will not start. It is recommended to configure this **once** before running the server for the first time, using one of the options below:
-
----
-
-### Option 1 — Apply manually (temporary)
-
-The value is lost when the VPS/machine restarts.
-
-```bash
-sudo sysctl -w vm.max_map_count=1048576
-```
-
----
-
-### Option 2 — Make it permanent (recommended)
-
-Creates a configuration file that is loaded automatically every time the system starts. Done **once**, no need to repeat. If `99-dayzserver.conf` doesn't work, try `/etc/sysctl.conf` instead.
-
-```bash
-echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
-sudo sysctl --system
-```
-
----
-
 ## 🚀 Step-by-step installation
 
 **1. Create the server folder:**
 
 ```bash
-mkdir $HOME/steamcmd/dayzserver
-cd $HOME/steamcmd/dayzserver
+mkdir /home/steamcmd/dayzserver
+cd /home/steamcmd/dayzserver
 ```
 
 **2. Clone the project:**
@@ -218,7 +191,7 @@ DayZ-Linux-server/
 
 ## 🔧 Mod profiles configuration
 
-After cloning the project, update the mod settings below via the command line (from the project root, e.g. `$HOME/steamcmd/dayzserver`).
+After cloning the project, update the mod settings below via the command line (from the project root, e.g. `/home/steamcmd/dayzserver`).
 
 > ⚠️ These files contain **passwords and API keys** — do not share or commit real values to Git. **Restart the server** after any change.
 
@@ -485,40 +458,13 @@ Quando configurado, o bot do Discord exibirá em tempo real o **status do servid
 
 ---
 
-## ⚙️ Configuração do sistema (pré-requisito)
- 
-No linux, o DayZ exige que o parâmetro `vm.max_map_count` esteja com um valor mínimo de `1048576`. Sem isso, o servidor não inicializa. É recomendado configurar isso **uma única vez** antes de iniciar o servidor pela primeira vez, escolhendo uma das opções abaixo:
- 
----
- 
-### Opção 1 — Aplicar manualmente (temporário)
- 
-O valor é perdido ao reiniciar a VPS/máquina.
- 
-```bash
-sudo sysctl -w vm.max_map_count=1048576
-```
- 
----
- 
-### Opção 2 — Tornar permanente (recomendado)
- 
-Crie um arquivo de configuração que é carregado automaticamente toda vez que o sistema inicia. Feito **uma única vez**, não precisa repetir. Caso `99-dayzserver.conf` não funcione, tente em: `/etc/sysctl.conf`.
- 
-```bash
-echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
-sudo sysctl --system
-```
-
----
-
 ## 🚀 Instalação passo a passo
 
 **1. Crie a pasta do servidor:**
 
 ```bash
-mkdir $HOME/steamcmd/dayzserver
-cd $HOME/steamcmd/dayzserver
+mkdir /home/steamcmd/dayzserver
+cd /home/steamcmd/dayzserver
 ```
 
 **2. Clone o projeto:**
@@ -627,7 +573,7 @@ DayZ-Linux-server/
 
 ## 🔧 Configuração profiles
 
-Após clonar o projeto, atualize as configurações dos mods abaixo pela linha de comando (na raiz do projeto, ex.: `$HOME/steamcmd/dayzserver`).
+Após clonar o projeto, atualize as configurações dos mods abaixo pela linha de comando (na raiz do projeto, ex.: `/home/steamcmd/dayzserver`).
 
 > ⚠️ Esses arquivos contêm **senhas e chaves de API** — não compartilhe nem faça commit de valores reais no Git. **Reinicie o servidor** após qualquer alteração.
 
@@ -847,6 +793,33 @@ sed -i 's|"discordAddress": ".*"|"discordAddress": "SEU_WEBHOOK_AQUI"|' profiles
 ```bash
 screen -S dayzserver -X quit
 sleep 2 && screen -S dayzserver -dm bash -c './scripts_server/start_server.sh'
+```
+
+---
+
+## ⚙️ Configuração do sistema (pré-requisito)
+ 
+No linux, o DayZ exige que o parâmetro `vm.max_map_count` esteja com um valor mínimo de `1048576`. Sem isso, o servidor não inicializa. É recomendado configurar isso **uma única vez** antes de iniciar o servidor pela primeira vez, o script start_server.sh já realiza essa configuração, porém caso falhe, você pode executar escolhendo uma das opções abaixo:
+ 
+---
+ 
+### Opção 1 — Aplicar manualmente (temporário)
+ 
+O valor é perdido ao reiniciar a VPS/máquina.
+ 
+```bash
+sudo sysctl -w vm.max_map_count=1048576
+```
+ 
+---
+ 
+### Opção 2 — Tornar permanente (recomendado)
+ 
+Crie um arquivo de configuração que é carregado automaticamente toda vez que o sistema inicia. Feito **uma única vez**, não precisa repetir. Caso `99-dayzserver.conf` não funcione, tente em: `/etc/sysctl.conf`.
+ 
+```bash
+echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
+sudo sysctl --system
 ```
 
 ---

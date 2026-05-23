@@ -2,17 +2,17 @@
 
 # ===== CONFIGURAÇÕES =====
 PROJECT="dayzserver" #name project/folder
-SERVER_DIR="$HOME/steamcmd/$PROJECT"
-PROTON_RUN="$SERVER_DIR/proton"
-SERVER_EXE="DayZServer_x64.exe" #Stable branch 
-#SERVER_EXE="DayZServer" #Experimental branch
+SERVER_DIR="/home/steamcmd/$PROJECT"
+# PROTON_RUN="$SERVER_DIR/proton"
+# SERVER_EXE="DayZServer_x64.exe" #Local Server 
+SERVER_EXE="DayZServer" #Linux Server
 SCRIPT_DIR="$SERVER_DIR/scripts_server"
 GAME_ID="223350" #Stable branch 
 #GAME_ID="1042420" #Experimental branch
 
 MOD_ID_FILE="mod_ids.txt"
 MOD_SERVER_DIR="$SERVER_DIR/md"
-MOD_GAME_DIR="$HOME/steamcmd/mods/steamapps/workshop/content/221100/"
+MOD_GAME_DIR="/home/steamcmd/mods/steamapps/workshop/content/221100/"
 
 ENV_CONFIG="$SCRIPT_DIR/config.env"
 
@@ -69,8 +69,8 @@ MODS="-mod=${MODS_PARAM_TEMP}"
 DOWNLOAD_COMMANDS=""
 
 # ===== PREFIX AND NECESSARY VARIABLES =====
-STEAM_COMPAT_DATA_PATH=$HOME/steamcmd/compatdata/dayzserver
-STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.steam/steamcmd"
+STEAM_COMPAT_DATA_PATH=/home/steamcmd/compatdata/dayzserver
+STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/.steam/steamcmd"
 
 load_credentials() {
     if [ ! -f "$ENV_CONFIG" ]; then
@@ -154,10 +154,16 @@ start_discord_bot() {
         sudo apt-get install -y python3-venv python3-full 2>/dev/null || true
     fi
  
-    # Cria o ambiente virtual se não existir
-    if [ ! -d "$BOT_VENV" ]; then
-        echo "🐍 Criando ambiente virtual em $BOT_VENV ..."
+    # Cria/repara o ambiente virtual
+    if [ ! -f "$BOT_VENV/bin/pip" ]; then
+        echo "🐍 Criando/Recriando ambiente virtual em $BOT_VENV ..."
+
+        rm -rf "$BOT_VENV"
         python3 -m venv "$BOT_VENV"
+
+        # Garante que o pip exista
+        "$BOT_VENV/bin/python" -m ensurepip --upgrade
+        "$BOT_VENV/bin/python" -m pip install --upgrade pip
     fi
  
     # Instala módulos dentro do venv se necessário
@@ -165,7 +171,7 @@ start_discord_bot() {
         local import_name="$1" pkg_name="$2" flags="$3"
         if ! "$BOT_VENV/bin/python" -c "import ${import_name}" &>/dev/null; then
             echo "⬇️  Instalando ${pkg_name} no venv..."
-            "$BOT_VENV/bin/pip" install $flags "${pkg_name}"
+            "$BOT_VENV/bin/python" -m pip install $flags "${pkg_name}"
         fi
     }
     _install_if_missing "discord" "discord.py" "-U"
@@ -202,14 +208,14 @@ stop_discord_bot() {
 }
 
 validate_dayz_server() {
-    local STEAMCMD="$HOME/.steam/steamcmd/steamcmd.sh"
+    local STEAMCMD="/home/.steam/steamcmd/steamcmd.sh"
 
     if [ -x "$SERVER_DIR/$SERVER_EXE" ]; then
         echo "✅ dayzserver. Ok!"
         return
     fi
 
-    mkdir -p $HOME/steamcmd/compatdata/dayzserver
+    mkdir -p /home/steamcmd/compatdata/dayzserver
 
     ensure_steamcmd
 
@@ -234,14 +240,28 @@ validate_dayz_server() {
 }
 
 ensure_steamcmd() {
-    if [ -x "$HOME/.steam/steamcmd/steamcmd.sh" ]; then
+    if [ -x "/home/.steam/steamcmd/steamcmd.sh" ]; then
         echo "✅ steamcmd already installed"
         return
     fi
 
+    echo "vm.max_map_count=1048576" | sudo tee /etc/sysctl.d/99-dayzserver.conf
+    sudo sysctl --system
+
+    echo "Adicionando arquitetura i386..."
+    sudo dpkg --add-architecture i386
+
+    echo "Atualizando pacotes..."
+    sudo apt update
+
+    echo "Instalando dependências 32-bit..."
+    sudo apt install -y libc6:i386 lib32gcc-s1 libstdc++6:i386
+
+    echo "Concluído."
+
     echo "⬇️ Installing steamcmd..."
-    mkdir -p "$HOME/.steam/steamcmd"
-    cd "$HOME/.steam/steamcmd" || exit 1
+    mkdir -p "/home/.steam/steamcmd"
+    cd "/home/.steam/steamcmd" || exit 1
 
     wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
     tar -xzf steamcmd_linux.tar.gz
@@ -270,15 +290,15 @@ download_mods() {
 
     ensure_steamcmd
 
-    local STEAMCMD="$HOME/.steam/steamcmd/steamcmd.sh"
+    local STEAMCMD="/home/.steam/steamcmd/steamcmd.sh"
 
     echo "⬇️ Downloading necessary mods..."
 
-    if [ ! -d "$HOME/steamcmd/mods" ]; then
-        mkdir -p "$HOME/steamcmd/mods"
+    if [ ! -d "/home/steamcmd/mods" ]; then
+        mkdir -p "/home/steamcmd/mods"
     fi
     
-    "$STEAMCMD" +force_install_dir "$HOME/steamcmd/mods" +login $USER_STEAM $PASSWORD_STEAM $DOWNLOAD_COMMANDS +quit
+    "$STEAMCMD" +force_install_dir "/home/steamcmd/mods" +login $USER_STEAM $PASSWORD_STEAM $DOWNLOAD_COMMANDS +quit
 }
 
 copy_mods() {
@@ -286,7 +306,7 @@ copy_mods() {
 
     for MOD_ID in "${IDS[@]}"; do
         local SERVER_MOD_DIR="$MOD_SERVER_DIR/$MOD_ID"
-        local CLIENT_MOD_DIR="$HOME/steamcmd/mods/steamapps/workshop/content/221100/$MOD_ID"
+        local CLIENT_MOD_DIR="/home/steamcmd/mods/steamapps/workshop/content/221100/$MOD_ID"
 
         if [ -d "$CLIENT_MOD_DIR" ] && [ ! -d "$SERVER_MOD_DIR" ]; then
             echo "📂 Copying mod $MOD_ID to server"
@@ -544,8 +564,8 @@ EOF
             fi
 
             echo "🚀 Starting a DayZ server..."            
-            "$PROTON_RUN" run "./$SERVER_EXE" $CONFIG $PROFILES "$MODS" "$SERVER_MODS" "$SERVER_PORT" "$SERVER_CPU" "$SERVER_OTHERS" &
-            #"./$SERVER_EXE" $CONFIG $PROFILES "$MODS" "$SERVER_MODS" "$SERVER_PORT" "$SERVER_CPU" "$SERVER_OTHERS" & #Experimental branch
+            #"$PROTON_RUN" run "./$SERVER_EXE" $CONFIG $PROFILES "$MODS" "$SERVER_MODS" "$SERVER_PORT" "$SERVER_CPU" "$SERVER_OTHERS" &
+            "./$SERVER_EXE" $CONFIG $PROFILES "$MODS" "$SERVER_MODS" "$SERVER_PORT" "$SERVER_CPU" "$SERVER_OTHERS" & #Server Linux
 
             SERVER_LAUNCH_PID=$!
 
